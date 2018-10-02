@@ -1,0 +1,25 @@
+:root {
+    --outline-color: #009900;
+}
+
+
+html {
+  height: 100vh;
+}
+
+body {
+  margin: 10px;
+  padding: 0;
+  border: 1px dashed var(--outline-color);
+  font-family: monospace;
+  height: calc(100vh - 20px);
+  background-color: #222;
+}
+
+.show {
+  display: inherit;
+}
+
+.hidden {
+  display: none;
+}

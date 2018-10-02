@@ -1,0 +1,67 @@
+.app {
+  text-align: center;
+  background-color: #222;
+}
+
+.logo {
+  animation: .logo-spin infinite 20s linear;
+  height: 16px;
+  display: inline-block;
+}
+
+.header {
+  background-color: var(--outline-color);
+  padding: 5px;
+  color: white;
+  border-bottom: 1px dashed var(--outline-color);
+  font-variant: small-caps;
+  font-size: 14px;
+}
+
+.header-section {
+  display: inline-block;
+  height: 100%;
+}
+
+.header-left {
+  text-align: left;
+  width: 20%;
+}
+
+.header-center {
+  width: 60%
+}
+
+.header-right {
+  text-align: right;
+  width: 20%;
+}
+
+.header-right div{
+  display: inline-block;
+}
+
+.header-menu-button {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.header-menu-botton:hover {
+  color: rgba(0,0,0,0.8);
+}
+
+.title {
+}
+
+.intro {
+  font-size: large;
+  background-color: #222;
+  color: white;
+}
+
+canvas { width: 512px; height: 512px; image-rendering: pixelated; }
+
+@keyframes .logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
