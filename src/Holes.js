@@ -26,18 +26,21 @@ function draw() {
   // Draw a circleq
   stroke(50);
 	for (var i = 0; i< rs.length; i++) {
-		fill(fillColors[i % 2]);
+	  let aged = darken(fillColors[i % 2], age[i] * 0.03);
+		//console.log(aged.setAlpha((255 * age[i] * 1) % 255));
+		fill(aged);
 		let offset  = age[i];//limitReached ? i + 1 : i;
-  	ellipse((x + (width - offset * (width / 200))) - center[0], y + offset * (height / 100), rs[i], rs[i]);
+  	ellipse((x + offset/*+ (width - offset * (width / 176))*/) - center[0], y - offset * (height / 101), rs[i], rs[i]);
 		//if (rs[i - 1] >= newLimit) {
 			rs[i] += 2;
 			age[i] +=0.1;
+			//age[i] += (Math.random() - 0.5) * 0.1;
 		//}
 	}
 
 	if (newLimit < rs[rs.length - 1]) {
 		rs.push(0);
-		age.push(0);
+		age.push(0);//(Math.random() - 0.5) * 2);
 		//console.log(rs[0]);
 		//console.log("age:", age);
 				// Reset to the bottom
@@ -52,8 +55,15 @@ function draw() {
 	}
 
 	theta = (theta + 1) % 360;
-	console.log(canvas.getAttribute('style') + ' filter: hue-rotate(' + theta + 'deg);');
 	canvas.setAttribute('style', initStyle + ' filter: hue-rotate(' + theta + 'deg);');
 
 
+}
+
+function darken(c, v) {
+	let c_n = color(0, 0, 0);
+	c_n.setRed(red(c) * v);
+	c_n.setGreen(green(c) * v);
+	c_n.setBlue(blue(c) * v);
+	return c_n;
 }
